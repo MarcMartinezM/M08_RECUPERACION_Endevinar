@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="17dp">
+
+    <ImageView
+        android:id="@+id/foto"
+        android:layout_width="329dp"
+        android:layout_height="166dp"
+        android:background="@mipmap/ic_launcher" />
+
+    <EditText
+        android:id="@+id/input_nombre"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/foto"
+        android:hint="Nombre"
+        />
+    <Button
+        android:id="@+id/butonok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_nombre"
+        android:text="OK"
+        />
+    <Button
+        android:id="@+id/butonCamera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/butonok"
+        android:text="Camera"
+        />
+
+</RelativeLayout>
