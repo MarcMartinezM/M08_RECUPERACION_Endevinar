@@ -7,7 +7,7 @@
         android:id="@+id/foto"
         android:layout_width="329dp"
         android:layout_height="166dp"
-        android:background="@mipmap/ic_launcher" />
+         />
 
     <EditText
         android:id="@+id/input_nombre"

@@ -39,9 +39,9 @@ public class Dialog extends AppCompatDialogFragment {
     private dialogListener listener;
     String nombreImagen;
     final int COD_FOTO = 20;
-    final String CARPETA_RAIZ = "MisFotosApp";
-    final String CARPETA_IMAGENES = "imagenes";
-    final String RUTA_IMAGEN = CARPETA_RAIZ + CARPETA_IMAGENES;
+    public static String CARPETA_RAIZ = "MisFotosApp";
+    public static String CARPETA_IMAGENES = "imagenes";
+    public static String RUTA_IMAGEN = CARPETA_RAIZ + CARPETA_IMAGENES;
     String path;
 
     public android.app.Dialog onCreateDialog(Bundle savedInstanceState) {
@@ -79,11 +79,11 @@ public class Dialog extends AppCompatDialogFragment {
             public void onClick(View v) {
               String nombre = input_name.getText().toString();
                 Log.i("nombre",nombre);
-              if(nombre.equals("") || nombre.equals(null)){
-                  Toast toast = Toast.makeText(getActivity(), "No puedes dejar el nombre en blanco", Toast.LENGTH_LONG);
+              if(nombre.equals("") || nombre.equals(null) ||path.equals("") || path.equals(null)){
+                  Toast toast = Toast.makeText(getActivity(), "No puedes dejar el nombre en blanco/foto", Toast.LENGTH_LONG);
 
               }else{
-                  listener.applyText(nombre,nombreImagen,path);
+                  listener.applyText(nombre,nombreImagen,path,true);
                   dismiss();
               }
 
@@ -114,10 +114,11 @@ public class Dialog extends AppCompatDialogFragment {
 
         if(isCreada == true) {
             nombreImagen = (System.currentTimeMillis() / 1000) + ".jpg";
+            Log.i("klk",nombreImagen);
         }
 
         path = Environment.getExternalStorageDirectory()+File.separator+RUTA_IMAGEN+File.separator+nombreImagen;
-        System.out.println(path);
+        System.out.println(path+nombreImagen);
         File imagen = new File(path);
 
         Intent intent = null;
@@ -155,6 +156,6 @@ public class Dialog extends AppCompatDialogFragment {
         }
     }
     public interface  dialogListener{
-        void applyText(String nombre, String nombrefoto,String pach);
+        void applyText(String nombre, String nombrefoto,String pach,boolean seCrea);
     }
 }

@@ -5,9 +5,9 @@ import android.net.Uri;
 public class Usuarios implements Comparable<Usuarios>{
     public String nombreUser;
     public int numFallos;
-    public Uri photoPath;
+    public String photoPath;
 
-    public Usuarios(String nombreUser, int numFallos, Uri photoPath) {
+    public Usuarios(String nombreUser, int numFallos, String photoPath) {
         super();
         this.nombreUser = nombreUser;
         this.numFallos = numFallos;
@@ -32,9 +32,16 @@ public class Usuarios implements Comparable<Usuarios>{
     }
     public int compareTo(Usuarios usuarios){return this.numFallos-usuarios.numFallos;}
 
-    public String toString() {
-        return "Usuarios [nombreUser=" + nombreUser + ", numFallos=" + numFallos + "]";
+    public String getPhotoPath() {
+        return photoPath;
     }
 
-
+    @Override
+    public String toString() {
+        return "Usuarios{" +
+                "nombreUser='" + nombreUser + '\'' +
+                ", numFallos=" + numFallos +
+                ", photoPath=" + photoPath +
+                '}';
+    }
 }
