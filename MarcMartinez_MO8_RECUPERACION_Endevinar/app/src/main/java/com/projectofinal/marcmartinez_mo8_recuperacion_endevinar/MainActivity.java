@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.dialogList
     }
 
     @Override
-    public void applyText(String nombre) {
+    public void applyText(String nombre,String nombrefoto,String pach) {
 
     }
 }
