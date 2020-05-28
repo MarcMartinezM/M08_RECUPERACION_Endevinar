@@ -6,16 +6,30 @@ public class Usuarios implements Comparable<Usuarios>{
     public String nombreUser;
     public int numFallos;
     public String photoPath;
+    public int foto_default;
 
-    public Usuarios(String nombreUser, int numFallos, String photoPath) {
+    public Usuarios(String nombreUser, int numFallos, String photoPath,int foto_default) {
         super();
         this.nombreUser = nombreUser;
         this.numFallos = numFallos;
         this.photoPath=photoPath;
+        this.foto_default=foto_default;
     }
     public Usuarios() {
 
 
+    }
+
+    public void setPhotoPath(String photoPath) {
+        this.photoPath = photoPath;
+    }
+
+    public int getFoto_default() {
+        return foto_default;
+    }
+
+    public void setFoto_default(int foto_default) {
+        this.foto_default = foto_default;
     }
 
     public String getNombreUser() {
@@ -41,7 +55,8 @@ public class Usuarios implements Comparable<Usuarios>{
         return "Usuarios{" +
                 "nombreUser='" + nombreUser + '\'' +
                 ", numFallos=" + numFallos +
-                ", photoPath=" + photoPath +
+                ", photoPath='" + photoPath + '\'' +
+                ", foto_default=" + foto_default +
                 '}';
     }
 }

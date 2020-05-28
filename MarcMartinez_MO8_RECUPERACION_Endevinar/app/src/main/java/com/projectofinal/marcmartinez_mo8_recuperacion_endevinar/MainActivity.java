@@ -24,7 +24,7 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity implements Dialog.dialogListener {
     int numeroRandom;
     int intentos=0;
-    static List<Usuarios> arrayRanking = new ArrayList<Usuarios>();
+    public static List<Usuarios> arrayRanking = new ArrayList<Usuarios>();
      TextView titulo,intentos_total,falloacierto;
      EditText imput_numero;
     Button buttonComporbar, buttonRanking;
@@ -83,14 +83,6 @@ public class MainActivity extends AppCompatActivity implements Dialog.dialogList
         if(num==numeroRandom){
             falloacierto.setText("!has ganado¡");
             openDialog();
-            if(guardar==true){
-                guardarInfo();
-            }
-            numeroRandom=new Random().nextInt(100)+1;
-            intentos=0;
-            guardar=false;
-            imput_numero.setText("");
-
         }else if(num==0){
             falloacierto.setText("No has introduido datos!");
             intentos++;
@@ -119,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements Dialog.dialogList
             BufferedReader br = new BufferedReader(new InputStreamReader(openFileInput("persistence.txt")));
             String linia;
             while((linia = br.readLine())!=null){
-                arrayRanking.add(new Usuarios(linia.split(";")[0],Integer.parseInt(linia.split(";")[1]),linia.split(";")[2]));
+                arrayRanking.add(new Usuarios(linia.split(";")[0],Integer.parseInt(linia.split(";")[1]),linia.split(";")[2],Integer.parseInt(linia.split(";")[3])));
             }
             br.close();
         }
@@ -132,7 +124,7 @@ private void guardarInfo(){
         OutputStreamWriter osw = new OutputStreamWriter(openFileOutput("persistence.txt", Context.MODE_PRIVATE));
         for(int i=0;i<arrayRanking.size();i++){
             Log.i("arrayRanking",arrayRanking.toString());
-            osw.write(arrayRanking.get(i).getNombreUser()+";"+arrayRanking.get(i).numFallos+";"+arrayRanking.get(i).getPhotoPath());
+            osw.write(arrayRanking.get(i).getNombreUser()+";"+arrayRanking.get(i).numFallos+";"+arrayRanking.get(i).getPhotoPath()+";"+arrayRanking.get(i).getFoto_default());
             osw.append("\r\n");
         }
 
@@ -149,8 +141,15 @@ private void guardarInfo(){
         Log.i("ruta foto",pach);
         if(seCrea==true){
             guardar=seCrea;
-            arrayRanking.add(new Usuarios(nombre,intentos, pach));
+            arrayRanking.add(new Usuarios(nombre,intentos, pach,R.drawable.foto_perfil_default));
         }
+        if(guardar==true){
+            guardarInfo();
+        }
+        numeroRandom=new Random().nextInt(100)+1;
+        intentos=0;
+        guardar=false;
+        imput_numero.setText("");
         }
 
 }
