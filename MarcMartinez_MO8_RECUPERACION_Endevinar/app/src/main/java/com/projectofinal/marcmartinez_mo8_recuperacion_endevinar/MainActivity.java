@@ -135,9 +135,8 @@ private void guardarInfo(){
 
 }
     @Override
-    public void applyText(String nombre,String nombrefoto,String pach,boolean seCrea) {
+    public void applyText(String nombre,String pach,boolean seCrea) {
         Log.i("nombre",nombre);
-        Log.i("Nombre foto",nombrefoto);
         Log.i("ruta foto",pach);
         if(seCrea==true){
             guardar=seCrea;

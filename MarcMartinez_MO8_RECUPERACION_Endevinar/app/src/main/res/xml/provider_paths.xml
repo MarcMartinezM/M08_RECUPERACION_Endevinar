@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
     <external-path
-        name="external_storage_root"
-        path="."/>
+        name="tutorialFoto"
+        path="Android/data/com.projectofinal.marcmartinez_mo8_recuperacion_endevinar/files/Pictures"/>
 </paths>
